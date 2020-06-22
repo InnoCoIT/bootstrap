@@ -1,1 +1,2 @@
-hihi
+#!env bash
+echo "hihi"
