@@ -10,7 +10,7 @@ function zbxAgnt {
 	yum clean
 
 	echo "Installation zbxAgnt for $1 $2"
-	yum install zabbix-agent
+	yum -y install zabbix-agent
 
 	echo "Changing agent configuration"
   sed -i "s/LogFileSize=0/LogFileSize=10/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
