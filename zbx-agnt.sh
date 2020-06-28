@@ -13,12 +13,15 @@ function zbxAgnt {
 	yum install zabbix-agent
 
 	echo "Changing agent configuration"
+  sed -i "s/LogFileSize=0/LogFileSize=10/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
+  sed -i "s/# EnableRemoteCommands=0/EnableRemoteCommands=1/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
 	sed -i "s/Server=127.0.0.1/Server=$SERVER_IP/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
 	sed -i "s/ServerActive=127.0.0.1/ServerActive=$SERVER_IP/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
 	sed -i "s/Hostname=Zabbix server/Hostname=$SERVER_IP/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
+  sed -i "s/# HostMetadataItem=/HostMetadataItem=system.uname/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
 
 	echo "Registering service..."
-	ckconfig --level 345 zabbix-on
+	chkconfig --level 345 zabbix-on
 
 	echo "Starting monitoring agent..."
 	service zabbix-agent start
