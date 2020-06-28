@@ -28,6 +28,12 @@ if [[ $EUID -ne 0 ]]; then
 	exit -1
 fi
 
+if [ $# -ne 1 ]; then
+ echo "Usage: $0 SERVER_IP"
+ exit -1
+fi
+
+
 if [[ "$OS" == *"Linux 7"* ]]; then
   zbxAgnt CentOS 7
 
