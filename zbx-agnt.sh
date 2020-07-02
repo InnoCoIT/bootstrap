@@ -2,6 +2,8 @@
 
 OS=`cat /etc/*-release | grep "PRETTY_NAME" | sed 's/PRETTY_NAME="//g'`
 SERVER_IP=$1
+HOSTNAME=$2
+
 function zbxAgnt {
 	os=$1
 	ver=$2
@@ -17,8 +19,7 @@ function zbxAgnt {
   sed -i "s/# EnableRemoteCommands=0/EnableRemoteCommands=1/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
 	sed -i "s/Server=127.0.0.1/Server=$SERVER_IP/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
 	sed -i "s/ServerActive=127.0.0.1/ServerActive=$SERVER_IP/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
-	sed -i "s/Hostname=Zabbix server/#Hostname=Zabbix server/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
-  sed -i "s/# HostnameItem=system.hostname/HostnameItem=system.hostname/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1\
+	sed -i "s/Hostname=Zabbix server/Hostname=${HOSTNAME}/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
   sed -i "s/# HostMetadataItem=/HostMetadataItem=system.uname/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
 
 	echo "Registering service..."
@@ -32,8 +33,8 @@ if [[ $EUID -ne 0 ]]; then
 	exit -1
 fi
 
-if [ $# -ne 1 ]; then
- echo "Usage: $0 SERVER_IP"
+if [ $# -ne 2 ]; then
+ echo "Usage: $0 SERVER_IP HOSTNAME"
  exit -1
 fi
 
