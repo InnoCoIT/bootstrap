@@ -21,7 +21,10 @@ function zbxAgnt {
 	sed -i "s/ServerActive=127.0.0.1/ServerActive=$SERVER_IP/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
 	sed -i "s/Hostname=Zabbix server/Hostname=${HOSTNAME}/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
   sed -i "s/# HostMetadataItem=/HostMetadataItem=system.uname/gi" /etc/zabbix/zabbix_agentd.conf > /dev/null 2>&1
-
+	echo "Adding firewall policy"
+	firewall-cmd --permanent --zone=public --add-rich-rule="rule family=ipv4 source address=${SERVER_IP} port protocol=tcp port=10050 accept"
+        firewall-cmd --reload
+	
 	echo "Registering service..."
 	chkconfig --level 345 zabbix-on
 
