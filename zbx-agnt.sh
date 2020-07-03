@@ -41,9 +41,10 @@ fi
 
 if [[ "$OS" == *"Linux 7"* ]]; then
   zbxAgnt CentOS 7
-
 elif [[ "$OS" == *"Linux 6"* ]]; then
   zbxAgnt CentOS 6
+elif [[ "$OS" == *"Linux 8"* ]]; then
+  zbxAgnt CentOS 8
 else
   echo "unknown os"
 fi
