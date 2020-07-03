@@ -41,10 +41,6 @@ if [ $# -ne 2 ]; then
  exit -1
 fi
 
-if [[ "$OS" == "" ]]; then
-  OS=`hostnamectl|grep "Operating"|awk '{print $4" "$5}'`
-fi
-
 if [[ "$OS" == *"Linux 7"* ]]; then
   zbxAgnt CentOS 7
 elif [[ "$OS" == *"Linux 6"* ]]; then
