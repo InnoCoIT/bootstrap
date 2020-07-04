@@ -17,7 +17,7 @@ if ([System.IntPtr]::Size -eq 4)
     bitsadmin.exe /transfer "InnoCoIT" https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-i386-openssl.zip "$installPath\$dnName"
 }
 else {
-    bitsadmin.exe /transfer "InnoCoIT"  https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-i386-openssl.zip  "$installPath\$dnName"
+    bitsadmin.exe /transfer "InnoCoIT"  https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-amd64-openssl.zip  "$installPath\$dnName"
 }
 
 #extract downloaded file
