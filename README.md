@@ -4,18 +4,18 @@ ZBX AGNT 설치
 
 # 윈도우 #
 * 에이전트 다운로드
- * 32bit: https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-i386-openssl.zip
- * 64bit: https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-amd64-openssl.zip
+  * 32bit: https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-i386-openssl.zip
+  * 64bit: https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-amd64-openssl.zip
 * 압축해제
- * C:\InnoCoIT 에 압축해제
+  * C:\InnoCoIT 에 압축해제
 * 설정파일 변경 (C:\InnoCoIT\conf\zabbix_agentd.conf)
- * LogFile=C:\InnoCoIT\zabbix_agentd.log
- * LogFileSize=10
- * EnableRemoteCommands=1 
- * Server=프록시서버아이피
- * ServerActive=프록시서버아이피
- * Hostname=호스트명
- * HostMetadataItem=system.uname
+  * LogFile=C:\InnoCoIT\zabbix_agentd.log
+  * LogFileSize=10
+  * EnableRemoteCommands=1 
+  * Server=프록시서버아이피
+  * ServerActive=프록시서버아이피
+  * Hostname=호스트명
+  * HostMetadataItem=system.uname
 * 방화벽 오픈
  * 10050/TCP 포트 허용
 * 서비스 등록 및 시작
