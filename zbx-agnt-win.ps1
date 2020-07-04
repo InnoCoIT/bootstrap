@@ -14,10 +14,14 @@ if (!(Test-Path -Path $installPath))
 # os ver checking
 if ([System.IntPtr]::Size -eq 4)
 {
+     {Write-Host "32bit"}
+    Start-Sleep -Seconds 3
     bitsadmin.exe /transfer "InnoCoIT" https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-i386-openssl.zip "$installPath\$dnName"
 }
 else {
-    bitsadmin.exe /transfer "InnoCoIT"  https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-amd64-openssl.zip  "$installPath\$dnName"
+  {Write-Host "64bit"}
+    Start-Sleep -Seconds 3
+    bitsadmin.exe /transfer "InnoCoIT"  https://www.zabbix.com/downloads/5.0.1/zabbix_agent-5.0.1-windows-i386-openssl.zip  "$installPath\$dnName"
 }
 
 #extract downloaded file
