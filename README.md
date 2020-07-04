@@ -17,11 +17,11 @@ ZBX AGNT 설치
   * Hostname=호스트명
   * HostMetadataItem=system.uname
 * 방화벽 오픈
- * 10050/TCP 포트 허용
+  * 10050/TCP 포트 허용
 * 서비스 등록 및 시작
- * cmd 실행 및 cd c:\InnoCoIT
- * bin\zabbix_agentd.exe -c C:\InnoCoIT\conf\zabbix_agentd.conf -i
- * bin\zabbix_agentd.exe -c C:\InnoCoIT\conf\zabbix_agentd.conf -s
+  * cmd 실행 및 cd c:\InnoCoIT
+  * bin\zabbix_agentd.exe -c C:\InnoCoIT\conf\zabbix_agentd.conf -i
+  * bin\zabbix_agentd.exe -c C:\InnoCoIT\conf\zabbix_agentd.conf -s
 
 # 리눅스 (CentOS 혹은 Redhat) #
 * 에이전트 다운로드 및 설치
